@@ -10,14 +10,16 @@ using System.Windows.Forms;
 
 namespace CalorieCalculator
 {
-    public class Food
-    {
-        int protein, carb, fat;
-    }
-
     public partial class Form1 : Form
-    {
-        
+    {  
+        public class Food
+        {
+            //Need to fix
+            public int protein;// = Convert.ToInt32(textBoxProtein.Text);
+            public int carb;// = Convert.ToInt32(textBoxCarb.Text);
+            public int fat;// = Convert.ToInt32(textBoxFat.Text);
+        }
+
         double calcCalorie(Food food)
         {
             double proteinCal, carbCal, fatCal, foodCal;
@@ -37,7 +39,20 @@ namespace CalorieCalculator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            calcCalorie(food);
+            //calcCalorie(food);
+            //Above call is preferred, below is temporary
+            int protein = Convert.ToInt32(textBoxProtein.Text);
+            int carb = Convert.ToInt32(textBoxCarb.Text);
+            int fat = Convert.ToInt32(textBoxFat.Text);
+            double proteinCal, carbCal, fatCal, foodCal;
+
+            proteinCal = protein * 4;
+            carbCal = carb * 4;
+            fatCal = fat * 9;
+
+            foodCal = proteinCal + carbCal + fatCal;
+            labelTotal.Text = "Total Calories: " + foodCal.ToString();
         }
+
     }
 }
