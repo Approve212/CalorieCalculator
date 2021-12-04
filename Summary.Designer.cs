@@ -53,11 +53,11 @@ namespace CalorieCalculator
             // labelWeekPicker
             // 
             this.labelWeekPicker.AutoSize = true;
-            this.labelWeekPicker.Location = new System.Drawing.Point(267, 9);
+            this.labelWeekPicker.Location = new System.Drawing.Point(257, 9);
             this.labelWeekPicker.Name = "labelWeekPicker";
-            this.labelWeekPicker.Size = new System.Drawing.Size(261, 15);
+            this.labelWeekPicker.Size = new System.Drawing.Size(284, 15);
             this.labelWeekPicker.TabIndex = 0;
-            this.labelWeekPicker.Text = "Pick the Sunday of the week you want to display";
+            this.labelWeekPicker.Text = "Pick the starting day of the week you want to display";
             // 
             // dateTimePickerWeekSum
             // 
@@ -72,45 +72,45 @@ namespace CalorieCalculator
             this.labelMon.AutoSize = true;
             this.labelMon.Location = new System.Drawing.Point(23, 157);
             this.labelMon.Name = "labelMon";
-            this.labelMon.Size = new System.Drawing.Size(51, 15);
+            this.labelMon.Size = new System.Drawing.Size(39, 15);
             this.labelMon.TabIndex = 2;
-            this.labelMon.Text = "Monday";
+            this.labelMon.Text = "Day 2:";
             // 
             // labelSun
             // 
             this.labelSun.AutoSize = true;
             this.labelSun.Location = new System.Drawing.Point(21, 71);
             this.labelSun.Name = "labelSun";
-            this.labelSun.Size = new System.Drawing.Size(46, 15);
+            this.labelSun.Size = new System.Drawing.Size(39, 15);
             this.labelSun.TabIndex = 3;
-            this.labelSun.Text = "Sunday";
+            this.labelSun.Text = "Day 1:";
             // 
             // labelTues
             // 
             this.labelTues.AutoSize = true;
             this.labelTues.Location = new System.Drawing.Point(23, 251);
             this.labelTues.Name = "labelTues";
-            this.labelTues.Size = new System.Drawing.Size(50, 15);
+            this.labelTues.Size = new System.Drawing.Size(39, 15);
             this.labelTues.TabIndex = 4;
-            this.labelTues.Text = "Tuesday";
+            this.labelTues.Text = "Day 3:";
             // 
             // labelWed
             // 
             this.labelWed.AutoSize = true;
             this.labelWed.Location = new System.Drawing.Point(21, 349);
             this.labelWed.Name = "labelWed";
-            this.labelWed.Size = new System.Drawing.Size(68, 15);
+            this.labelWed.Size = new System.Drawing.Size(39, 15);
             this.labelWed.TabIndex = 5;
-            this.labelWed.Text = "Wednesday";
+            this.labelWed.Text = "Day 4:";
             // 
             // labelThur
             // 
             this.labelThur.AutoSize = true;
             this.labelThur.Location = new System.Drawing.Point(433, 71);
             this.labelThur.Name = "labelThur";
-            this.labelThur.Size = new System.Drawing.Size(55, 15);
+            this.labelThur.Size = new System.Drawing.Size(39, 15);
             this.labelThur.TabIndex = 6;
-            this.labelThur.Text = "Thursday";
+            this.labelThur.Text = "Day 5:";
             // 
             // labelFri
             // 
@@ -119,16 +119,16 @@ namespace CalorieCalculator
             this.labelFri.Name = "labelFri";
             this.labelFri.Size = new System.Drawing.Size(39, 15);
             this.labelFri.TabIndex = 7;
-            this.labelFri.Text = "Friday";
+            this.labelFri.Text = "Day 6:";
             // 
             // labelSat
             // 
             this.labelSat.AutoSize = true;
             this.labelSat.Location = new System.Drawing.Point(435, 251);
             this.labelSat.Name = "labelSat";
-            this.labelSat.Size = new System.Drawing.Size(53, 15);
+            this.labelSat.Size = new System.Drawing.Size(39, 15);
             this.labelSat.TabIndex = 8;
-            this.labelSat.Text = "Saturday";
+            this.labelSat.Text = "Day 7:";
             // 
             // labelSunOut
             // 
@@ -201,9 +201,9 @@ namespace CalorieCalculator
             this.labelTotal.AutoSize = true;
             this.labelTotal.Location = new System.Drawing.Point(433, 349);
             this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(127, 15);
+            this.labelTotal.Size = new System.Drawing.Size(130, 15);
             this.labelTotal.TabIndex = 21;
-            this.labelTotal.Text = "Total Calories for Week";
+            this.labelTotal.Text = "Total Calories for Week:";
             // 
             // labelCalForWeek
             // 
