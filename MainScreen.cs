@@ -28,8 +28,11 @@ namespace CalorieCalculator
         private void buttonWeekSum_Click(object sender, EventArgs e)
         {
             Summary page = new Summary();
+            page.mainScreen = this;
             page.foodDic = foodDic;
             page.Show();
+            this.Enabled = false;
+            
         }
 
         public void addFood(Form1.Food food) 

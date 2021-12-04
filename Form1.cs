@@ -26,7 +26,7 @@ namespace CalorieCalculator
             public DateTime Day { get; set; }
             public override string ToString()
             {
-                return "Name: " + Name + ", Type: " + Type + ", Servings: " + Serving + ", Total Calories: " + TotalCal;
+                return "Name: " + Name + " Servings: " + Serving + ", Total Calories: " + TotalCal + "\n";
             }
         }
 
