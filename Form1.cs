@@ -53,6 +53,54 @@ namespace CalorieCalculator
             foodCal = proteinCal + carbCal + fatCal;
             labelTotal.Text = "Total Calories: " + foodCal.ToString();
         }
+        private void calculateButton_Click(object sender, EventArgs e)
+        {
+            string gender, exercise;
+            double height, weight, age, malebr, femalebr; //variables
+            decimal bmrult;
+            
+            //personal information
+            height = double.Parse(heightTextBox.Text);
+            weight = double.Parse(weightTextBox.Text);
+            age = double.Parse(ageTextBox.Text);
+            //select gender
+            if (genderList.SelectedIndex !=-1)
+           {
+                gender = genderList.SelectedItem.ToString();
+                switch(gender)
+                {  
+                    case "Male":
+                        //perform calculation
+                        malebmr = weight * 10 + height * 6.25 - age * 5 - 5);
+                        calories = malebmr * bmrmult;
+                        bmrDisplay.Text = ("Your base metabolic rate burns " + calories+
+                        break;
+                    case "Female"
+                        femalebmr = weight * 10 + height * 6.25 - age * 5 - 161;
+                        MessageBox.Show("You should eat:" + femalebmr + "calories");
+                        break;
+                 }
+            }
+            if (exerciseList.SelectedIndex !=-1)
+            {
+                string exercise;
+                exercise = exerciseList.SelectedItem.ToString();
+                switch (exercise)
+                {
+                                    case "Light exercise (1–3 days per week)":
+                                    bmrmult = (int)1.375m;
+                                    break;
+                                    case "Moderate exercise (3–5 days per week)":
+                                    bmrmult = (int)1.55m;
+                                    break;
+                                    case "Heavy exercise (6–7 days per week)":
+                                    bmrmult = (int)1.725m;
+                                    break;
+                                    case "Very heavy exercise (twice per day, extra heavy workouts)":
+                                    bmrmult = (int)1.9m;
+                                    break;
+                }
+    
 
     }
 }
