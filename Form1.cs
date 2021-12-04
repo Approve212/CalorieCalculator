@@ -11,25 +11,37 @@ using System.Windows.Forms;
 namespace CalorieCalculator
 {
     public partial class Form1 : Form
-    {  
+    {
+        public MainScreen mainScreen;
         public class Food
         {
             //Need to fix
-            public int protein;// = Convert.ToInt32(textBoxProtein.Text);
-            public int carb;// = Convert.ToInt32(textBoxCarb.Text);
-            public int fat;// = Convert.ToInt32(textBoxFat.Text);
+            public string Name { get; set; }
+            public string Type { get; set; }
+            public int Serving { get; set; }
+            public int Protein { get; set; }
+            public int Carb { get; set; }
+            public int Fat { get; set; }
+            public int TotalCal { get; set; }
+            public DateTime Day { get; set; }
+            public override string ToString()
+            {
+                return "Name: " + Name + ", Type: " + Type + ", Servings: " + Serving + ", Total Calories: " + TotalCal;
+            }
         }
 
-        double calcCalorie(Food food)
+        int CalcCalorie(Food food)
         {
-            double proteinCal, carbCal, fatCal, foodCal;
+            int proteinCal, carbCal, fatCal, serv, foodCal, totalCal;
 
-            proteinCal = food.protein * 4;
-            carbCal = food.carb * 4;
-            fatCal = food.fat * 9;
+            proteinCal = food.Protein * 4;
+            carbCal = food.Carb * 4;
+            fatCal = food.Fat * 9;
+            serv = food.Serving;
 
             foodCal = proteinCal + carbCal + fatCal;
-            return foodCal;
+            totalCal = foodCal * serv;
+            return totalCal;
         }
 
         public Form1()
@@ -37,22 +49,41 @@ namespace CalorieCalculator
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonCalc_Click(object sender, EventArgs e)
         {
-            //calcCalorie(food);
-            //Above call is preferred, below is temporary
+            
             int protein = Convert.ToInt32(textBoxProtein.Text);
             int carb = Convert.ToInt32(textBoxCarb.Text);
             int fat = Convert.ToInt32(textBoxFat.Text);
-            double proteinCal, carbCal, fatCal, foodCal;
+            int serv = Convert.ToInt32(textBoxServ.Text);
+            
+            Food food = new Food();
 
-            proteinCal = protein * 4;
-            carbCal = carb * 4;
-            fatCal = fat * 9;
+            food.Name = textName.Text;
+            food.Type = comboBoxType.Text;
+            food.Serving = serv;
+            food.Protein = protein;
+            food.Carb = carb;
+            food.Fat = fat;
+            food.Day = dateTimePickerDay.Value.Date;
 
-            foodCal = proteinCal + carbCal + fatCal;
-            labelTotal.Text = "Total Calories: " + foodCal.ToString();
+            int totalCal = CalcCalorie(food);
+
+            food.TotalCal = totalCal; 
+
+            mainScreen.addFood(food);
+
+            labelCalc.Text = food.Name + " entered for " + food.Day;
         }
 
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            mainScreen.Enabled = true;
+        }
     }
 }
