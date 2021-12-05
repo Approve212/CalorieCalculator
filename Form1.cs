@@ -47,33 +47,64 @@ namespace CalorieCalculator
         public Form1()
         {
             InitializeComponent();
+            comboBoxType.Text = "Meat";
         }
 
         private void buttonCalc_Click(object sender, EventArgs e)
         {
             
-            int protein = Convert.ToInt32(textBoxProtein.Text);
-            int carb = Convert.ToInt32(textBoxCarb.Text);
-            int fat = Convert.ToInt32(textBoxFat.Text);
-            int serv = Convert.ToInt32(textBoxServ.Text);
+
+            if (textName.Text == "")
+            {
+                Message.Text = "Please Enter Food Name";
+            }
+            else if (textBoxServ.Text == "")
+            {
+                Message.Text = "Please Enter Serving Amount";
+            }
+            else if (textBoxProtein.Text == "")
+            {
+                Message.Text = "Please Enter Proteins in grams";
+            }
+            else if (textBoxCarb.Text == "")
+            {
+                Message.Text = "Please Enter Carbs in grams";
+            }
+            else if (textBoxFat.Text == "")
+            {
+                Message.Text = "Please Enter Fat in grams";
+            }
             
-            Food food = new Food();
 
-            food.Name = textName.Text;
-            food.Type = comboBoxType.Text;
-            food.Serving = serv;
-            food.Protein = protein;
-            food.Carb = carb;
-            food.Fat = fat;
-            food.Day = dateTimePickerDay.Value.Date;
+            else
+            {
+                int protein = Convert.ToInt32(textBoxProtein.Text);
+                int carb = Convert.ToInt32(textBoxCarb.Text);
+                int fat = Convert.ToInt32(textBoxFat.Text);
+                int serv = Convert.ToInt32(textBoxServ.Text);
 
-            int totalCal = CalcCalorie(food);
+                Food food = new Food();
 
-            food.TotalCal = totalCal; 
 
-            mainScreen.addFood(food);
 
-            labelCalc.Text = food.Name + " entered for " + food.Day;
+                food.Name = textName.Text;
+                food.Type = comboBoxType.Text;
+                food.Serving = serv;
+                food.Protein = protein;
+                food.Carb = carb;
+                food.Fat = fat;
+                food.Day = dateTimePickerDay.Value.Date;
+
+
+
+                int totalCal = CalcCalorie(food);
+
+                food.TotalCal = totalCal;
+
+                mainScreen.addFood(food);
+
+                labelCalc.Text = food.Name + " entered for " + food.Day;
+            }
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -84,6 +115,11 @@ namespace CalorieCalculator
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             mainScreen.Enabled = true;
+        }
+
+        private void textBoxProtein_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
