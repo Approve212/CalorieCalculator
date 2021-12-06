@@ -52,101 +52,53 @@ namespace CalorieCalculator
 
         private void buttonCalc_Click(object sender, EventArgs e)
         {
-             if (textName.Text == "")
+            if (textName.Text == "")
             {
-                Message.Text = "Please Enter Food Name";
+                MessageBox.Show("Please Enter Food Name");
             }
             else if (textBoxServ.Text == "")
             {
-                Message.Text = "Please Enter Serving Amount";
+                MessageBox.Show("Please Enter Serving Amount");
             }
             else if (textBoxProtein.Text == "")
             {
-                Message.Text = "Please Enter Proteins in grams";
+                MessageBox.Show("Please Enter Proteins in grams");
             }
             else if (textBoxCarb.Text == "")
             {
-                Message.Text = "Please Enter Carbs in grams";
+                MessageBox.Show("Please Enter Carbs in grams");
             }
             else if (textBoxFat.Text == "")
             {
-                Message.Text = "Please Enter Fat in grams";
+                MessageBox.Show("Please Enter Fat in grams");
             }
-            
+
             else
             {
-            int protein = Convert.ToInt32(textBoxProtein.Text);
-            int carb = Convert.ToInt32(textBoxCarb.Text);
-            int fat = Convert.ToInt32(textBoxFat.Text);
-            int serv = Convert.ToInt32(textBoxServ.Text);
-            
-            Food food = new Food();
+                int protein = Convert.ToInt32(textBoxProtein.Text);
+                int carb = Convert.ToInt32(textBoxCarb.Text);
+                int fat = Convert.ToInt32(textBoxFat.Text);
+                int serv = Convert.ToInt32(textBoxServ.Text);
 
-            food.Name = textName.Text;
-            food.Type = comboBoxType.Text;
-            food.Serving = serv;
-            food.Protein = protein;
-            food.Carb = carb;
-            food.Fat = fat;
-            food.Day = dateTimePickerDay.Value.Date;
+                Food food = new Food();
 
-            int totalCal = CalcCalorie(food);
+                food.Name = textName.Text;
+                food.Type = comboBoxType.Text;
+                food.Serving = serv;
+                food.Protein = protein;
+                food.Carb = carb;
+                food.Fat = fat;
+                food.Day = dateTimePickerDay.Value.Date;
 
-            food.TotalCal = totalCal; 
+                int totalCal = CalcCalorie(food);
 
-            mainScreen.addFood(food);
+                food.TotalCal = totalCal;
 
-            labelCalc.Text = food.Name + " entered for " + food.Day;
+                mainScreen.addFood(food);
+
+                labelCalc.Text = food.Name + " entered for " + food.Day;
             }
         }
-        private void calculateButton_Click(object sender, EventArgs e)
-        {
-            string gender, exercise;
-            double height, weight, age, malebr, femalebr; //variables
-            decimal bmrult;
-            
-            //personal information
-            height = double.Parse(heightTextBox.Text);
-            weight = double.Parse(weightTextBox.Text);
-            age = double.Parse(ageTextBox.Text);
-            //select gender
-            if (genderList.SelectedIndex !=-1)
-           {
-                gender = genderList.SelectedItem.ToString();
-                switch(gender)
-                {  
-                    case "Male":
-                        //perform calculation
-                        malebmr = weight * 10 + height * 6.25 - age * 5 - 5);
-                        calories = malebmr * bmrmult;
-                        bmrDisplay.Text = ("Your base metabolic rate burns " + calories+
-                        break;
-                    case "Female"
-                        femalebmr = weight * 10 + height * 6.25 - age * 5 - 161;
-                        MessageBox.Show("You should eat:" + femalebmr + "calories");
-                        break;
-                 }
-            }
-            if (exerciseList.SelectedIndex !=-1)
-            {
-                string exercise;
-                exercise = exerciseList.SelectedItem.ToString();
-                switch (exercise)
-                {
-                                    case "Light exercise (1–3 days per week)":
-                                    bmrmult = (int)1.375m;
-                                    break;
-                                    case "Moderate exercise (3–5 days per week)":
-                                    bmrmult = (int)1.55m;
-                                    break;
-                                    case "Heavy exercise (6–7 days per week)":
-                                    bmrmult = (int)1.725m;
-                                    break;
-                                    case "Very heavy exercise (twice per day, extra heavy workouts)":
-                                    bmrmult = (int)1.9m;
-                                    break;
-                }
-    
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
