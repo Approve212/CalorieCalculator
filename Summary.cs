@@ -31,10 +31,10 @@ namespace CalorieCalculator
         {
             DateTime curDate = dateTimePickerWeekSum.Value.Date;
             List<Form1.Food> curFoodList;
-            StringBuilder sb = new StringBuilder();
             int totalCalorieWeek = 0;
             foreach (Label label in arrayLabels)
             {
+                StringBuilder sb = new StringBuilder();
                 if (foodDic.TryGetValue(curDate, out curFoodList))
                 {
                     foreach (Form1.Food food in curFoodList)
