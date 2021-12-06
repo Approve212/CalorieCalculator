@@ -47,11 +47,34 @@ namespace CalorieCalculator
         public Form1()
         {
             InitializeComponent();
+            comboBoxType.Text = "Meat";
         }
 
         private void buttonCalc_Click(object sender, EventArgs e)
         {
+             if (textName.Text == "")
+            {
+                Message.Text = "Please Enter Food Name";
+            }
+            else if (textBoxServ.Text == "")
+            {
+                Message.Text = "Please Enter Serving Amount";
+            }
+            else if (textBoxProtein.Text == "")
+            {
+                Message.Text = "Please Enter Proteins in grams";
+            }
+            else if (textBoxCarb.Text == "")
+            {
+                Message.Text = "Please Enter Carbs in grams";
+            }
+            else if (textBoxFat.Text == "")
+            {
+                Message.Text = "Please Enter Fat in grams";
+            }
             
+            else
+            {
             int protein = Convert.ToInt32(textBoxProtein.Text);
             int carb = Convert.ToInt32(textBoxCarb.Text);
             int fat = Convert.ToInt32(textBoxFat.Text);
@@ -74,6 +97,7 @@ namespace CalorieCalculator
             mainScreen.addFood(food);
 
             labelCalc.Text = food.Name + " entered for " + food.Day;
+            }
         }
         private void calculateButton_Click(object sender, EventArgs e)
         {
